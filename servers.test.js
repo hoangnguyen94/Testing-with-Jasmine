@@ -10,6 +10,12 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(Object.keys(allServers).length).toEqual(1);
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
+  it('should not add new server with empty input', function() {
+    serverNameInput.value = '';
+    submitServerInfo();
+
+    expect(Object.keys(allServers).length).toEqual(0);
+  });
   
   afterEach(function() {
     // teardown logic
